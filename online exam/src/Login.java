@@ -53,13 +53,11 @@ public class Login extends JFrame implements ActionListener {
 		        username_Field.setBounds(200,220,300,30);
 		        Password_Label.setBounds(200,290,100,30);
 		        password_Field.setBounds(200,330,300,30);
-		        login_Button.setBounds(200,450,250,25);
-		     
+		        login_Button.setBounds(200,450,250,25); 
 		}
 		
 		public static void main(String[] args) {		
-	         Login login_Frame = new Login("Login");
-	         
+	        Login login_Frame = new Login("Login"); 
 	       	}
 		
 		public void actionPerformed(ActionEvent ae){
@@ -71,14 +69,15 @@ public class Login extends JFrame implements ActionListener {
 			if(user_Type_List.getSelectedItem().trim().equals("Teacher") && 
 		     username_Field.getText().trim().equals("Admin") && 
 		     password_Field.getText().trim().equals("Admin@123")) {
-				
+	
 		     System.out.println("Admin loged in successfully");
-			Insert_Question H1 = new Insert_Question();
-			
+		     Admin_Frame admin_Frame = new Admin_Frame("Admin");
+		     this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 			}
 			else {
 			System.out.println("if is not executing");     
 	}
  }
+	
 		
 }
