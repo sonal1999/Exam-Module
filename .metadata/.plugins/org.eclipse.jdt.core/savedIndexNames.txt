@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+F:\Projects\online exams\.metadata\.plugins\org.eclipse.jdt.core
-1625010544.index
-1014948160.index
-2158312854.index

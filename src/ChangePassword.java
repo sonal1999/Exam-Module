@@ -14,6 +14,11 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
@@ -163,6 +168,49 @@ public class ChangePassword {
 		changepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Validation validation=new Validation();
+				
+				Database_Connection connection = new Database_Connection();
+		        Connection conn = connection.connect();
+		        
+		        int index = Integer.parseInt(username.getText());
+				  try {
+					   
+					   Statement stmt = conn.createStatement();
+			           ResultSet rs=stmt.executeQuery("select password from student where rollNo="+index);
+			           rs.next();
+			
+			          if(password.getText().equals(rs.getString("password"))){
+			        	  if(newpassword.getText().equals(conpassword.getText())) {
+			        		  
+			        		  PreparedStatement stm = conn.prepareStatement("update student set password=? where rollNo="+index);	
+			  				stm.setString(1,conpassword.getText());
+			  				stm.executeUpdate();
+			  				
+			  				frame.getContentPane().removeAll();  
+			  				Student student = new Student(frame);
+			  				frame.revalidate();
+			  				frame.repaint();
+			  				
+			  			
+			        	  }
+			        	  
+			          }
+			            
+			         
+			            
+			          
+				      
+				           
+			           //.select(rs.getInt("subject"));
+			          
+			           
+			           
+			           
+			          // answer_Field.setText((rs.getString("answer")));		           
+		              } catch (SQLException e3) {
+			            e3.printStackTrace();
+		              }
+			
 
 			}
 		});
@@ -170,10 +218,17 @@ public class ChangePassword {
 		frame.getContentPane().add(changepassword);
 		
 		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		frame.getContentPane().removeAll();  
+		Student student = new Student(frame);
+		frame.revalidate();
+		frame.repaint();
+			}
+		});
+		
 		back.setBackground(Color.CYAN);
 		back.setBounds(104, 497, 180, 47);
 		frame.getContentPane().add(back);
-		
-		
 	}
 }

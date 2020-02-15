@@ -25,20 +25,20 @@ public class Student {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JFrame frame = new JFrame();
-					frame.setVisible(true);
-					Student window = new Student(frame);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					JFrame frame = new JFrame();
+//					frame.setVisible(true);
+//					Student window = new Student(frame);
+//					
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -64,10 +64,10 @@ public class Student {
 //		frame.getContentPane().add(panel);
 //		
 		JLabel lblNewLabel = new JLabel(" ");
-		Image image=new ImageIcon(this.getClass().getResource("user_image1.png")).getImage();
-		lblNewLabel.setIcon(new ImageIcon(image));
-		lblNewLabel.setBounds(265, 56, 199, 240);
-		frame.getContentPane().add(lblNewLabel);
+		//Image image=new ImageIcon(this.getClass().getResource("user_image1.png")).getImage();
+		//lblNewLabel.setIcon(new ImageIcon(image));
+		//lblNewLabel.setBounds(265, 56, 199, 240);
+		//frame.getContentPane().add(lblNewLabel);
 		
 		Label label = new Label("Name");
 		label.setBounds(181, 345, 132, 34);
