@@ -130,8 +130,11 @@ public class Student {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Start Exam");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Exam exam=new Exam();
-				exam.main(null);
+				frame.getContentPane().removeAll();
+			Exam exam=new Exam(frame);
+			frame.revalidate();
+			frame.repaint();
+				//exam.main(null);
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_2);
@@ -139,8 +142,10 @@ public class Student {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Records");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Records records=new Records();
-				records.main(null);
+				frame.getContentPane().removeAll();
+				Records records=new Records(frame);
+				frame.revalidate();
+				frame.repaint();
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_3);

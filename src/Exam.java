@@ -18,36 +18,36 @@ public class Exam {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Exam window = new Exam();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Exam window = new Exam();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public Exam() {
-		initialize();
+	public Exam(JFrame f) {
+		initialize(f);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
+	private void initialize(JFrame frame) {
+		//frame = new JFrame();
 		//frame.setBounds(100, 100, 450, 300);
-		frame.setLocation(50, 50);
-		frame.setSize(750,750);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame.setLocation(50, 50);
+		//frame.setSize(750,750);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.getContentPane().setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
         comboBox.addItem("Mathematics");
@@ -63,8 +63,11 @@ public class Exam {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StartExam startexam=new StartExam();
-				startexam.main(null);
+				frame.getContentPane().removeAll();
+				StartExam startexam=new StartExam(frame);  
+				
+				frame.revalidate();
+				frame.repaint();//startexam.main(null);
 				
 			}
 			

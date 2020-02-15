@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 
 public class StartExam {
 
-	private JFrame frame;
+	//private JFrame frame;
 	private final JPanel panel = new JPanel();
 	private Button button;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -28,33 +28,33 @@ public class StartExam {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StartExam window = new StartExam();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					StartExam window = new StartExam();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public StartExam() {
-		initialize();
+	public StartExam(JFrame f) {
+		initialize(f);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
+	private void initialize(JFrame frame) {
+		//frame = new JFrame();
 		frame.getContentPane().setBackground(UIManager.getColor("Button.background"));
-		frame.setLocation(50, 50);
+	    frame.setLocation(50, 50);
 		frame.setSize(750,750);
 		//frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

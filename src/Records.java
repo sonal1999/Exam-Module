@@ -11,44 +11,44 @@ import javax.swing.JTable;
 
 public class Records {
 
-	private JFrame frame;
+	//private JFrame frame;
 	private JTable table;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Records window = new Records();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Records window = new Records();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public Records() {
-		initialize();
+	public Records(JFrame f) {
+		initialize(f);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
+	private void initialize(JFrame frame) {
+		//frame = new JFrame();
 		Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\hp\\Desktop\\sonal.jpg");  
 		frame.setIconImage(icon); 
-		frame.setLocation(50, 50);
-		frame.setSize(750,750);
+		//frame.setLocation(50, 50);
+		//frame.setSize(750,750);
 		//frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Records");
 		lblNewLabel.setBounds(104, 113, 317, 82);
