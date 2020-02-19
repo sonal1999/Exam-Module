@@ -57,7 +57,7 @@ public class ChangePassword {
 	/**
 	 * Create the application.
 	 */
-	public ChangePassword(JFrame frame) {
+	public ChangePassword(JFrame frame, int index) {
 		//initialize(JFrame frame);
 	
 	/**
@@ -187,7 +187,7 @@ public class ChangePassword {
 			  				stm.executeUpdate();
 			  				
 			  				frame.getContentPane().removeAll();  
-			  				Student student = new Student(frame);
+			  				Student student = new Student(frame,index);
 			  				frame.revalidate();
 			  				frame.repaint();
 			  				
@@ -221,7 +221,7 @@ public class ChangePassword {
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		frame.getContentPane().removeAll();  
-		Student student = new Student(frame);
+		Student student = new Student(frame,index);
 		frame.revalidate();
 		frame.repaint();
 			}

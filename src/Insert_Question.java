@@ -24,10 +24,11 @@ public class Insert_Question extends JFrame implements ActionListener
 	        
 	        select_Subject_List = new List(3);
 	        
+	        select_Subject_List.add("Mathematics");
 	        select_Subject_List.add("Physics");
 	        select_Subject_List.add("Chemistry");
 	        select_Subject_List.add("Biology");
-	        select_Subject_List.add("Mathematics");
+	     
 	        
 	        question_Area = new TextArea("TextAera is as given",50,50,TextArea.SCROLLBARS_BOTH);
 	        

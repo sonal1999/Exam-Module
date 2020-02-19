@@ -13,6 +13,11 @@ public class Login extends JFrame implements ActionListener {
 	List user_Type_List;
 	 JTextField username_Field;
      TextField password_Field;
+    public int roll_No;
+     
+     Login(){
+    	 
+     }
 	
 		Login(String title){
 			setVisible(true);
@@ -65,10 +70,10 @@ public class Login extends JFrame implements ActionListener {
 	       	}
 		
 		public void actionPerformed(ActionEvent ae){
-			System.out.println("Button is clicked");
-			System.out.println(user_Type_List.getSelectedItem());
-			System.out.println(username_Field.getText());
-			System.out.println(password_Field.getText());
+//			System.out.println("Button is clicked");
+//			System.out.println(user_Type_List.getSelectedItem());
+//			System.out.println(username_Field.getText());
+//			System.out.println(password_Field.getText());
 			
 			if(user_Type_List.getSelectedItem().trim().equals("Teacher") && 
 		     username_Field.getText().trim().equals("Admin") && 
@@ -97,11 +102,13 @@ public class Login extends JFrame implements ActionListener {
 			           if(password_Field.getText().trim().equals(rs.getString("password"))) {
 	                   
 			        	   System.out.println("Student logged in successfully");
+			        	  // roll_No =index;
+			 
 			        	   JFrame frame = new JFrame();  
 			        	   frame.setVisible(true);
-			        	   Student window = new Student(frame);
+			        	   Student window = new Student(frame , index);
 			        	   
-			        	   this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+			        	 this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		                }
 			           }catch (SQLException e) {
 			            e.printStackTrace();

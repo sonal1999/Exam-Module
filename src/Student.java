@@ -43,14 +43,15 @@ public class Student {
 	/**
 	 * Create the application.
 	 */
-	public Student(JFrame frame) {
-		initialize(frame);
+	public Student(JFrame frame,  int index) {
+		
+		initialize(frame,index);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(JFrame frame) {
+	private void initialize(JFrame frame,int index) {
 		//frame = new JFrame();
 		frame.setBounds(100, 100, 600, 467);
 		frame.setLocation(50, 50);
@@ -103,7 +104,7 @@ public class Student {
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();  
-			Update update=new Update(frame);
+			Update update=new Update(frame,index);
 			frame.revalidate();
 			frame.repaint();
 				
@@ -117,7 +118,7 @@ public class Student {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.getContentPane().removeAll();  
-				ChangePassword changepassword =new ChangePassword(frame);
+				ChangePassword changepassword =new ChangePassword(frame,index);
 				frame.revalidate();
 				frame.repaint();
 			}
@@ -131,7 +132,7 @@ public class Student {
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();
-			Exam exam=new Exam(frame);
+			Exam exam=new Exam(frame,index);
 			frame.revalidate();
 			frame.repaint();
 				//exam.main(null);

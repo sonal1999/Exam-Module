@@ -34,14 +34,14 @@ public class Exam {
 	/**
 	 * Create the application.
 	 */
-	public Exam(JFrame f) {
-		initialize(f);
+	public Exam(JFrame f, int index) {
+		initialize(f,index);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(JFrame frame) {
+	private void initialize(JFrame frame, int index) {
 		//frame = new JFrame();
 		//frame.setBounds(100, 100, 450, 300);
 		//frame.setLocation(50, 50);
@@ -64,8 +64,7 @@ public class Exam {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();
-				StartExam startexam=new StartExam(frame);  
-				
+				StartExam startexam=new StartExam(frame,index);  
 				frame.revalidate();
 				frame.repaint();//startexam.main(null);
 				
@@ -88,7 +87,7 @@ public class Exam {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();  
-				Student student = new Student(frame);
+				Student student = new Student(frame,index);
 				frame.revalidate();
 				frame.repaint();
 				

@@ -68,7 +68,7 @@ public class Update {
 	/**
 	 * Create the application.
 	 */
-	public Update(JFrame frame) {
+	public Update(JFrame frame,int index) {
 		
 		Database_Connection connection = new Database_Connection();
         Connection conn = connection.connect();
@@ -298,7 +298,7 @@ public class Update {
 				
 				
 				frame.getContentPane().removeAll();  
-				Student student = new Student(frame);
+				Student student = new Student(frame,index);
 				frame.revalidate();
 				frame.repaint();
 				
