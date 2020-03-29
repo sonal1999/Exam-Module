@@ -42,14 +42,7 @@ import java.io.OutputStream;
 import java.sql.Blob;
 
 public class Update {
-
-	//String path="";
-	//JLabel lblNewLabel = new JLabel("Select Your image");
-	
-	public Update() {			
-		
-	}
-
+	public Update() {}
 public void initialize(JFrame frame,int index) {
 	Database_Connection connection = new Database_Connection();
     Connection conn = connection.connect();
@@ -63,13 +56,13 @@ public void initialize(JFrame frame,int index) {
 			
 	Label label_1 = new Label("Name");
 	label_1.setFont(new Font("Dialog", Font.BOLD, 12));
-	label_1.setBounds(47, 140, 180, 33);
+	label_1.setBounds(47, 200, 180, 33);
 	frame.getContentPane().add(label_1);
 	
-	Label label_2 = new Label("Date of Birth");
+	/*Label label_2 = new Label("Date of Birth");
 	label_2.setFont(new Font("Dialog", Font.BOLD, 12));
 	label_2.setBounds(47, 200, 180, 33);
-	frame.getContentPane().add(label_2);
+	frame.getContentPane().add(label_2);*/
 
 	Label label_3 = new Label("Gender");
 	label_3.setFont(new Font("Dialog", Font.BOLD, 12));
@@ -137,12 +130,12 @@ public void initialize(JFrame frame,int index) {
 			}
 		}
 	}); */
-	name.setBounds(251, 140, 288, 33);
+	name.setBounds(251, 200, 288, 33);
 	frame.getContentPane().add(name);
 	
-	TextField dob = new TextField();
+/*	TextField dob = new TextField();
 	dob.setBounds(251, 200, 288, 33);
-	frame.getContentPane().add(dob);
+	frame.getContentPane().add(dob); */
 	
 	JRadioButton male = new JRadioButton("Male");
 	male.setActionCommand("Male");

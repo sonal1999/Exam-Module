@@ -165,10 +165,10 @@ public class ChangePassword {
 		JButton back = new JButton("Back");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		frame.getContentPane().removeAll();  
-		Student student = new Student(frame,index);
-		frame.revalidate();
-		frame.repaint();
+		       frame.getContentPane().removeAll();  
+		       Student student = new Student(frame,index);
+		       frame.revalidate();
+		       frame.repaint();
 			}
 		});
 		

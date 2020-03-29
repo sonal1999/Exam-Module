@@ -28,7 +28,7 @@ public class Admin_Frame extends JFrame implements ActionListener{
      void render() {
     	 title_Label = new Label("Welcome to admin panel"); 
     	 this.add(title_Label);
- 	    title_Label.setBounds(300,300,300,50);	
+ 	     title_Label.setBounds(300,300,300,50);	
      }
      
      
@@ -49,11 +49,10 @@ public class Admin_Frame extends JFrame implements ActionListener{
 	    navigation.add(home);
 	    navigation.add(student_navigation);
 	    navigation.add(question_navigation);
-	    
 	    render();
 	}        
 	
-	 JMenu getQuestionMenu() {
+	    JMenu getQuestionMenu() {
 		JMenu question= new JMenu("Question");
 		
 		insert_Item = new JMenuItem("Insert");
@@ -69,9 +68,9 @@ public class Admin_Frame extends JFrame implements ActionListener{
 	    question.addSeparator();
 		question.add(update_Item);
 		question.addSeparator();
-		question.add(delete_Item);
-		        
-		     return question;
+		question.add(delete_Item);        
+		
+		return question;
 	   }
 	 
 	 JMenu getHomeMenu() {
@@ -159,9 +158,4 @@ public class Admin_Frame extends JFrame implements ActionListener{
 		     this.repaint();		 
 		 }
 	 }
-//	 
-//	public static void main(String[] args) {
-//		Admin_Frame admin_Frame = new Admin_Frame("Admin");    
-//	}
-
 }

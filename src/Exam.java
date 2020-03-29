@@ -20,13 +20,6 @@ public class Exam {
 	}
 
 	private void initialize(JFrame frame, int index) {
-		//frame = new JFrame();
-		//frame.setBounds(100, 100, 450, 300);
-		//frame.setLocation(50, 50);
-		//frame.setSize(750,750);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.getContentPane().setLayout(null);
-		// int number;
 		
 		JComboBox comboBox = new JComboBox();
         comboBox.addItem("Mathematics");
@@ -37,13 +30,6 @@ public class Exam {
 		comboBox.setSelectedItem(null);
 		frame.getContentPane().add(comboBox);
 		
-//		comboBox.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				number = getSelectedItem();
-//				
-//			}
-//		});
-//		
 		JButton btnNewButton = new JButton("Start Exam");
 		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));

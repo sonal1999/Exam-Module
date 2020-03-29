@@ -71,14 +71,10 @@ public class Login extends JFrame implements ActionListener {
 	       	}
 		
 		public void actionPerformed(ActionEvent ae){
-//			System.out.println("Button is clicked");
-//			System.out.println(user_Type_List.getSelectedItem());
-//			System.out.println(username_Field.getText());
-//			System.out.println(password_Field.getText());
 			
 			Database_Connection connection = new Database_Connection();
 	         Connection conn = connection.connect();
-	         
+	   
 			if(((String) user_Type_List.getSelectedItem()).trim().equals("Teacher")) { 
 		     
 				if(username_Field.getText().trim().equals("Admin") && 
