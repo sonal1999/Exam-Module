@@ -93,7 +93,6 @@ public class update_Question extends JFrame{
 						 
 						JOptionPane.showMessageDialog(f,"Your question is updated succussfully!!!");
 					} catch (SQLException e11) {
-						// TODO Auto-generated catch block
 						JOptionPane.showMessageDialog(f,"Problem raised while updating question record...");
 						e11.printStackTrace();
 					}

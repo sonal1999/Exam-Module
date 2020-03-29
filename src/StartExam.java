@@ -57,10 +57,7 @@ public class StartExam {
 		getData(number);
 	
 		try {
-		
-			
-			Button button = new Button("Previous");
-						
+			Button button = new Button("Previous");			
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					 try {
@@ -194,12 +191,6 @@ public class StartExam {
 			button_2.setFont(new Font("Dialog", Font.BOLD, 15));
 			button_2.setBounds(576, 591, 137, 38);
 			frame.getContentPane().add(button_2);
-			
-//			Label label = new Label("TEST", Label.CENTER);
-//			label.setFont(new Font("Dialog", Font.BOLD, 20));
-//			label.setBackground(SystemColor.textHighlight);
-//			label.setBounds(308, 10, 200, 61);
-//			frame.getContentPane().add(label);
 			
 			roll_No_Label = new Label("RollNo:", Label.LEFT);
 			roll_No_Label.setFont(new Font("Dialog", Font.PLAIN, 14));

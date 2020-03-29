@@ -45,7 +45,7 @@ public class Delete_Question extends JFrame{
 							conn.close();
 							JOptionPane.showMessageDialog(f,"Question record is deleted succussfully!!!");
 						} catch (SQLException e11) {
-							// TODO Auto-generated catch block
+							
 							e11.printStackTrace();
 							JOptionPane.showMessageDialog(f,"Problem raised while deleting question record...");
 						}
