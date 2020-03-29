@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.Panel;
 import java.awt.Button;
@@ -20,37 +23,9 @@ import java.awt.TextField;
 import java.awt.Color;
 
 public class Student {
-
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					JFrame frame = new JFrame();
-//					frame.setVisible(true);
-//					Student window = new Student(frame);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
-	public Student(JFrame frame,  int index) {
-		
+		public Student(JFrame frame,  int index) {
 		initialize(frame,index);
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(JFrame frame,int index) {
 		//frame = new JFrame();
 		frame.setBounds(100, 100, 600, 467);
@@ -60,52 +35,80 @@ public class Student {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-//		Panel panel = new Panel();
-//		panel.setBounds(0, 0, 736, 10);
-//		frame.getContentPane().add(panel);
-//		
+		Panel panel = new Panel(); 
+		panel.setBounds(0, 0, 736, 10);
+		frame.getContentPane().add(panel);
+	
 		JLabel lblNewLabel = new JLabel(" ");
-		//Image image=new ImageIcon(this.getClass().getResource("user_image1.png")).getImage();
-		//lblNewLabel.setIcon(new ImageIcon(image));
-		//lblNewLabel.setBounds(265, 56, 199, 240);
-		//frame.getContentPane().add(lblNewLabel);
+		Image image=new ImageIcon(this.getClass().getResource("user_image.png")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(image));
+		lblNewLabel.setBounds(300, 56, 199, 240);
+		frame.getContentPane().add(lblNewLabel);
 		
-		Label label = new Label("Name");
+		Label label = new Label("Roll No.");
 		label.setBounds(181, 345, 132, 34);
 		frame.getContentPane().add(label);
 		
-		Label label_1 = new Label("Class");
+		Label label_1 = new Label("Name");
 		label_1.setBounds(181, 415, 132, 34);
 		frame.getContentPane().add(label_1);
 		
-		Label label_2 = new Label("Roll No");
+		Label label_2 = new Label("Email");
 		label_2.setBounds(181, 497, 132, 34);
 		frame.getContentPane().add(label_2);
 		
-		Label label_3 = new Label(" ABC");
+		Database_Connection connection = new Database_Connection();
+	    Connection conn = connection.connect();
+	    try {
+	    Statement stmt = conn.createStatement();
+        ResultSet rs=stmt.executeQuery("select rollNo,name,email from student where rollNo="+index);
+        rs.next();
+        	
+       
+
+		
+		Label label_3 = new Label(rs.getInt("rollNo")+"");
 		label_3.setBounds(355, 345, 315, 34);
 		frame.getContentPane().add(label_3);
 		
-		Label label_4 = new Label("XSD ");
+		Label label_4 = new Label(rs.getString("name"));
 		label_4.setBounds(355, 415, 315, 34);
 		frame.getContentPane().add(label_4);
 		
-		Label label_5 = new Label(" ASD");
+		Label label_5 = new Label(rs.getString("email"));
 		label_5.setBounds(355, 497, 315, 34);
 		frame.getContentPane().add(label_5);
+	    }catch(Exception e11) {
+	      System.out.println(e11);
+	    }
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
+		JMenu home = new JMenu("Home");
+		menuBar.add(home);
+		JMenuItem profile = new JMenuItem("Profile");
+		profile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		    frame.getContentPane().removeAll();  
+			Student s1 = new Student(frame , index);
+			frame.revalidate();;
+			frame.repaint();	
+			}
+		});
+		home.add(profile);
+		
 		JMenu mnProfile = new JMenu("Profile");
 		menuBar.add(mnProfile);
+		
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Update");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();  
-			Update update=new Update(frame,index);
-			frame.revalidate();
+			Update update=new Update();
+			update.initialize(frame,index);
+			frame.revalidate();;
 			frame.repaint();
 				
 				
@@ -144,7 +147,7 @@ public class Student {
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();
-				Records records=new Records(frame);
+				Records records=new Records(frame,index);
 				frame.revalidate();
 				frame.repaint();
 			}

@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Add_Student extends JFrame  implements ActionListener {
+public class Add_Student extends JFrame{
 		      
 	TextField Roll_No_Field;
     TextField Email_Field;
@@ -15,11 +15,52 @@ public class Add_Student extends JFrame  implements ActionListener {
 	        Label Roll_No_Label = new Label("Roll No.");
 	        Label Email_Label = new Label("Email");
 	      
-	        Roll_No_Field = new TextField("3",100);
-	        Email_Field = new TextField("4",100);
+	        Roll_No_Field = new TextField("",100);
+	        Email_Field = new TextField("",100);
 	        
 	        Button add = new Button("Add");
-	        add.addActionListener(this);
+	        add.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String roll_No_Text,email;
+					
+					  
+				     
+				      roll_No_Text = Roll_No_Field.getText();
+				      email =Email_Field.getText();
+				     
+				      
+					 
+				      System.out.println(roll_No_Text+"\n"+email);
+				 
+					  Database_Connection connection = new Database_Connection();
+				      Connection conn = connection.connect();
+				         
+				      String query = " insert into student (rollNo,email)"
+				        	        + " values (?, ?)";
+				         
+				      PreparedStatement preparedStmt = null;
+				         
+						try {
+							 preparedStmt = conn.prepareStatement(query);
+				        	 preparedStmt.setString(1,roll_No_Text);
+							 preparedStmt.setString (2,email);
+							
+					         preparedStmt.execute();     
+					         conn.close();
+					         Roll_No_Field.setText("");
+					         Email_Field.setText("");
+					         JOptionPane.showMessageDialog(f,"Your data is submitted succussfully!!!");
+					         
+						     } catch (SQLException e11) {	
+							e11.printStackTrace();
+							JOptionPane.showMessageDialog(f,"Duplicate data is not allowed...");
+						 }
+				             
+					System.out.println("Hello i am from actionPerformed");
+					System.out.println("Now it's done");		
+			}
+
+				});
 	         
 	        f.add(Roll_No_Label);
 	        f.add(Roll_No_Field);
@@ -34,43 +75,5 @@ public class Add_Student extends JFrame  implements ActionListener {
 	        Email_Field.setBounds(250,215,350,25);
 
 	        add.setBounds(300,350,100,50);             
-		}
-		
-	
-		public void actionPerformed(ActionEvent ae){
-			
-			  String roll_No_Text,email;
-			
-			  
-		     
-		      roll_No_Text = Roll_No_Field.getText();
-		      email =Email_Field.getText();
-		     
-		      
-			 
-		      System.out.println(roll_No_Text+"\n"+email);
-		 
-			  Database_Connection connection = new Database_Connection();
-		      Connection conn = connection.connect();
-		         
-		      String query = " insert into student (rollNo,email)"
-		        	        + " values (?, ?)";
-		         
-		      PreparedStatement preparedStmt = null;
-		         
-				try {
-					 preparedStmt = conn.prepareStatement(query);
-		        	 preparedStmt.setString(1,roll_No_Text);
-					 preparedStmt.setString (2,email);
-					
-			         preparedStmt.execute();     
-			         conn.close();			         			        
-				     } catch (SQLException e) {	
-					e.printStackTrace();
-				 }
-		             
-			System.out.println("Hello i am from actionPerformed");
-			System.out.println("Now it's done");		
-	}
-
+		}		  
 }

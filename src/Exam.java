@@ -15,32 +15,10 @@ public class Exam {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Exam window = new Exam();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
 	public Exam(JFrame f, int index) {
 		initialize(f,index);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(JFrame frame, int index) {
 		//frame = new JFrame();
 		//frame.setBounds(100, 100, 450, 300);
@@ -48,6 +26,7 @@ public class Exam {
 		//frame.setSize(750,750);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.getContentPane().setLayout(null);
+		// int number;
 		
 		JComboBox comboBox = new JComboBox();
         comboBox.addItem("Mathematics");
@@ -58,13 +37,21 @@ public class Exam {
 		comboBox.setSelectedItem(null);
 		frame.getContentPane().add(comboBox);
 		
+//		comboBox.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				number = getSelectedItem();
+//				
+//			}
+//		});
+//		
 		JButton btnNewButton = new JButton("Start Exam");
 		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int number = comboBox.getSelectedIndex();
 				frame.getContentPane().removeAll();
-				StartExam startexam=new StartExam(frame,index);  
+				StartExam startexam=new StartExam(frame,index,number);  
 				frame.revalidate();
 				frame.repaint();//startexam.main(null);
 				
@@ -94,8 +81,7 @@ public class Exam {
 			}
 		});
 		btnNewButton_1.setBounds(102, 337, 171, 40);
-		frame.getContentPane().add(btnNewButton_1);
-		
+		frame.getContentPane().add(btnNewButton_1);	
 		
 	}
 }

@@ -1,69 +1,51 @@
 
 
+import java.awt.Button;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import net.proteanit.sql.DbUtils;
+
 public class Records {
 
-	//private JFrame frame;
-	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Records window = new Records();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
-	public Records(JFrame f) {
-		initialize(f);
+	Records(JFrame frame ,int index){
+		Database_Connection connection = new Database_Connection();
+	    Connection conn = connection.connect();
+	    String sql="select * from record where rollNo="+index;
+	    PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			rs.last();
+			String data[][] = new String[rs.getRow()][2];
+			rs.beforeFirst();
+			String column[]={"Subject","Score"}; 
+		
+			int i=-1, j=0;
+			while(rs.next()){
+				i++;
+				j=0;
+				data[i][j]=rs.getString("subject");
+				j++;
+				data[i][j]=Integer.toString(rs.getInt("marks"));
+			}
+		JTable t1= new JTable(data,column);
+		t1.setBounds(20,20,700,645);
+//		 JScrollPane sp=new JScrollPane(t1);   
+		frame.getContentPane().add(t1);	
+	}catch(Exception e11) {
+		 System.out.println(e11);
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize(JFrame frame) {
-		//frame = new JFrame();
-		Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\hp\\Desktop\\sonal.jpg");  
-		frame.setIconImage(icon); 
-		//frame.setLocation(50, 50);
-		//frame.setSize(750,750);
-		//frame.setBounds(100, 100, 450, 300);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.getContentPane().setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Records");
-		lblNewLabel.setBounds(104, 113, 317, 82);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(104, 565, 526, -308);
-		frame.getContentPane().add(scrollPane);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
-
-		
-		
-		
-		
-	}
+}
 }

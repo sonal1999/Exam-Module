@@ -1,15 +1,10 @@
-import java.awt.EventQueue;
 import java.awt.Font;
-
 import javax.swing.JFrame;
-
-
+import javax.swing.JOptionPane;
 
 import java.awt.Label;
 import java.awt.TextField;
-import java.awt.Checkbox;
 import java.awt.Color;
-
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -27,55 +22,16 @@ import javax.swing.JCheckBox;
 import javax.swing.UIManager;
 
 public class ChangePassword {
-
-	private JFrame frame;
-	
 	private JPasswordField password;
 	private JPasswordField newpassword;
 	private JPasswordField conpassword;
 
-	/**
-	 * Launch the application.
-	 */
-	
-	/*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ChangePassword window = new ChangePassword();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	*/
-
-	/**
-	 * Create the application.
-	 */
 	public ChangePassword(JFrame frame, int index) {
-		//initialize(JFrame frame);
-	
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	
-		//frame = new JFrame();
-		//frame.getContentPane().setBackground(UIManager.getColor("Button.light"));
-		//frame.setLocation(50, 50);
-		//frame.setSize(750,750);
-		//frame.setBounds(100, 100, 450, 300);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.getContentPane().setLayout(null);
-		
-		Label label = new Label("Username");
-		label.setFont(new Font("Dialog", Font.BOLD, 12));
-		label.setBounds(104, 113, 180, 33);
-		frame.getContentPane().add(label);
+
+//		Label label = new Label("Username");
+//		label.setFont(new Font("Dialog", Font.BOLD, 12));
+//		label.setBounds(104, 113, 180, 33);
+//		frame.getContentPane().add(label);
 		
 		Label label_1 = new Label("Current Password");
 		label_1.setFont(new Font("Dialog", Font.BOLD, 12));
@@ -92,9 +48,9 @@ public class ChangePassword {
 		label_3.setBounds(104, 317, 180, 33);
 		frame.getContentPane().add(label_3);
 		
-		TextField username = new TextField();
-		username.setBounds(419, 113, 159, 33);
-		frame.getContentPane().add(username);
+//		TextField username = new TextField();
+//		username.setBounds(419, 113, 159, 33);
+//		frame.getContentPane().add(username);
 		
 		password = new JPasswordField();
 		password.setBounds(419, 180, 159, 33);
@@ -172,7 +128,7 @@ public class ChangePassword {
 				Database_Connection connection = new Database_Connection();
 		        Connection conn = connection.connect();
 		        
-		        int index = Integer.parseInt(username.getText());
+//		        int index = Integer.parseInt(username.getText());
 				  try {
 					   
 					   Statement stmt = conn.createStatement();
@@ -185,6 +141,7 @@ public class ChangePassword {
 			        		  PreparedStatement stm = conn.prepareStatement("update student set password=? where rollNo="+index);	
 			  				stm.setString(1,conpassword.getText());
 			  				stm.executeUpdate();
+			  				JOptionPane.showMessageDialog(frame,"Your password is updated Successfully!!!");
 			  				
 			  				frame.getContentPane().removeAll();  
 			  				Student student = new Student(frame,index);
@@ -194,19 +151,7 @@ public class ChangePassword {
 			  			
 			        	  }
 			        	  
-			          }
-			            
-			         
-			            
-			          
-				      
-				           
-			           //.select(rs.getInt("subject"));
-			          
-			           
-			           
-			           
-			          // answer_Field.setText((rs.getString("answer")));		           
+			          }	           
 		              } catch (SQLException e3) {
 			            e3.printStackTrace();
 		              }
