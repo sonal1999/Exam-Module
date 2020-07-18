@@ -1,6 +1,6 @@
 
 This is a exam module for multiple choice questions.
-Show Stopper:
+Extensible Functionalities:
   1)PDF generation
   2)Messaging 
   3)Encyption-Decryption to prevent SQL injection attack
