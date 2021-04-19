@@ -79,7 +79,6 @@ public class update_Question extends JFrame{
 						
 						stm.executeUpdate();
 						n++;
-						//view_Question_Area.setText("");
 						conn.close();
 						
 						select_Subject_List.setSelectedItem(null);
