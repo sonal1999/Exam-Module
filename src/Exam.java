@@ -39,7 +39,7 @@ public class Exam {
 				frame.getContentPane().removeAll();
 				StartExam startexam=new StartExam(frame,index,number);  
 				frame.revalidate();
-				frame.repaint();//startexam.main(null);
+				frame.repaint();
 				
 			}
 			
