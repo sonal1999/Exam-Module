@@ -1,5 +1,4 @@
 import java.awt.*;
-//import java.awt.event.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.Connection;
@@ -99,7 +98,6 @@ public class Login extends JFrame implements ActionListener {
 			           if(password_Field.getText().trim().equals(rs.getString("password"))) {
 	                   
 			        	   System.out.println("Student logged in successfully");
-			        	  // roll_No =index;
 			 
 			        	   JFrame frame = new JFrame();  
 			        	   frame.setVisible(true);
