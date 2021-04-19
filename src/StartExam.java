@@ -44,10 +44,8 @@ public class StartExam {
 		try {
 			stmt = conn.createStatement();
 			rs=stmt.executeQuery("select * from question_bank where subject="+number);
-			//name = rs.getString('name')
 			rs.next();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -178,7 +176,6 @@ public class StartExam {
 						         preparedStmt.execute();     
 						} 
 						 catch (SQLException e11) {
-							// TODO Auto-generated catch block
 							e11.printStackTrace();
 						}
 					frame.getContentPane().removeAll();  
