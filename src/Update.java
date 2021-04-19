@@ -59,11 +59,6 @@ public void initialize(JFrame frame,int index) {
 	label_1.setBounds(47, 200, 180, 33);
 	frame.getContentPane().add(label_1);
 	
-	/*Label label_2 = new Label("Date of Birth");
-	label_2.setFont(new Font("Dialog", Font.BOLD, 12));
-	label_2.setBounds(47, 200, 180, 33);
-	frame.getContentPane().add(label_2);*/
-
 	Label label_3 = new Label("Gender");
 	label_3.setFont(new Font("Dialog", Font.BOLD, 12));
 	label_3.setBounds(47, 260, 180, 33);
@@ -85,24 +80,6 @@ public void initialize(JFrame frame,int index) {
 	frame.getContentPane().add(rlab);
 	
     TextField rollno = new TextField(); 
-  /*  rollno.addKeyListener(new KeyAdapter() {
-
-		public void keyTyped(KeyEvent e) {
-			String PATTERN="^[0-9]{0,15}$";
-			Pattern patt=Pattern.compile(PATTERN);
-			Matcher match=patt.matcher(rollno.getText());
-			if(!match.matches())
-			{
-				rlab.setText("Only Numbers Are Required");
-				
-			}
-			else
-			{
-				rlab.setText(null);
-			}
-			
-		}
-	}); */
     
 	rollno.setBounds(251, 20, 200, 33);
 	frame.getContentPane().add(rollno);
@@ -113,29 +90,9 @@ public void initialize(JFrame frame,int index) {
 	frame.getContentPane().add(nlab);
 	
 	TextField name = new TextField();
-	/*name.addKeyListener(new KeyAdapter() {
-		@Override
-		public void keyTyped(KeyEvent e) {
-			String PATTERN="^[a-zA-Z0-9]{0,30}$";
-			Pattern patt=Pattern.compile(PATTERN);
-			Matcher match=patt.matcher(name.getText());
-			if(!match.matches())
-			{
-				nlab.setText("Invalid Name");
-				
-			}
-			else
-			{
-				nlab.setText(null);
-			}
-		}
-	}); */
+	
 	name.setBounds(251, 200, 288, 33);
 	frame.getContentPane().add(name);
-	
-/*	TextField dob = new TextField();
-	dob.setBounds(251, 200, 288, 33);
-	frame.getContentPane().add(dob); */
 	
 	JRadioButton male = new JRadioButton("Male");
 	male.setActionCommand("Male");
@@ -159,24 +116,7 @@ public void initialize(JFrame frame,int index) {
 	
 	
 	TextField phoneno = new TextField();
-	/* phoneno.addKeyListener(new KeyAdapter() {
-
-			public void keyTyped(KeyEvent e) {
-				String PATTERN="^[0-9]{0,10}$";
-				Pattern patt=Pattern.compile(PATTERN);
-				Matcher match=patt.matcher(phoneno.getText());
-				if(!match.matches())
-				{
-					plab.setText("Invalid Phone Number");
-					
-				}
-				else
-				{
-					plab.setText(null);
-				}
-				
-			}
-		}); */
+	
 	phoneno.setBounds(251, 320, 288, 33);
 	frame.getContentPane().add(phoneno);
 	
@@ -192,23 +132,7 @@ public void initialize(JFrame frame,int index) {
 	
 	
 	TextField email = new TextField();
-	/*email.addKeyListener(new KeyAdapter() {
-		@Override
-		public void keyTyped(KeyEvent e) {
-			String PATTERN="^[a-zA-Z0-9]{0,30}@[a-zA-Z0-9]{0,5}[.][a-zA-Z]{0,5}$";
-			Pattern patt=Pattern.compile(PATTERN);
-			Matcher match=patt.matcher(email.getText());
-			if(!match.matches())
-			{
-				elab.setText("Please Enter Valid Email");
-				
-			}
-			else
-			{
-				elab.setText(null);
-			}
-		}
-	}); */
+
 	email.setBounds(251, 403, 288, 33);
 	frame.getContentPane().add(email);
 	
@@ -228,16 +152,6 @@ public void initialize(JFrame frame,int index) {
 			String gender = buttonGroup.getSelection().getActionCommand();
 			int index = Integer.parseInt(rollno.getText());
 			
-	/*	try {
-			File image = new File(path);
-	        FileInputStream fis = null;
-			try {
-				fis = new FileInputStream(image);
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} */
-			
 			PreparedStatement stm;
 			try {
 				stm = conn.prepareStatement("update student set name=? , address=? , email=? , contactNo=? , gender=? where rollNo="+index);
@@ -246,7 +160,6 @@ public void initialize(JFrame frame,int index) {
 				stm.setString(3,email.getText());
 				stm.setString(4,phoneno.getText());
 				stm.setString(5,gender);
-//				stm.setBinaryStream(6,fis,(int) path.length());
 				
 				stm.executeUpdate();
 				JOptionPane.showMessageDialog(frame,"Your record is updated Successfully!!!");
@@ -255,29 +168,18 @@ public void initialize(JFrame frame,int index) {
 				Student student = new Student(frame,index);
 				frame.revalidate();
 				frame.repaint();
-
 				
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-		
+				
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(frame,"Problem is raised while updating your record !!!");
 			}	
-		
-			
-			
-		
-			//view_Question_Area.setText("");
 			
 	}
 	
 		});
 	update.setBounds(47, 615, 180, 33);
 	frame.getContentPane().add(update);
-	
-	
-/*	lblNewLabel.setBounds(560, 80, 165, 165);
-    frame.getContentPane().add(lblNewLabel); */
 	
 	Button back = new Button("Back");
 	back.addActionListener(new ActionListener() {
@@ -292,42 +194,12 @@ public void initialize(JFrame frame,int index) {
 			try {
 				conn.close();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			//Student.main(null);
 		}
 	});
 	back.setBounds(374, 615, 165, 33);
 	frame.getContentPane().add(back);
-	
-	
-/*	JButton browse = new JButton("Browse");
-	browse.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			JFileChooser file=new JFileChooser();
-			file.setCurrentDirectory(new File(System.getProperty("user.home")));
-			FileNameExtensionFilter filter=new FileNameExtensionFilter("*.Images","jpg","gif","png");
-			file.addChoosableFileFilter(filter);
-			int result=file.showSaveDialog(null);
-			if(result==JFileChooser.APPROVE_OPTION)
-			{
-				File selectedFile=file.getSelectedFile();
-				path=selectedFile.getAbsolutePath();
-				lblNewLabel.setIcon(ResizeImage(path));
-				
-			}
-			else if(result==JFileChooser.CANCEL_OPTION)
-			{
-				System.out.println("No File Select");
-			}
-			
-		}
-	});    
-	
-		
-	browse.setBounds(554, 280, 172, 33);
-	frame.getContentPane().add(browse); */
    
 	Button view = new Button("View");
 	view.addActionListener(new ActionListener() {
@@ -352,34 +224,7 @@ public void initialize(JFrame frame,int index) {
 			           else if(rs.getString("gender").equals("Female")){
 			        	   female.setSelected(true);
 			           }
-			        /*  
-			           
-			         String filePath = "F:/photo.jpg";
-			           Blob blob = rs.getBlob("image");
-			           try {
-		                InputStream inputStream = blob.getBinaryStream();
-		                OutputStream outputStream = new FileOutputStream(filePath);
-		                int length = inputStream.available();
-		                System.out.println(length);
-		 
-		                int bytesRead = -1;
-		                byte[] buffer = new byte[length];
-		                while ((bytesRead = inputStream.read(buffer)) != -1) {
-		                    outputStream.write(buffer, 0, bytesRead);
-		                }
-		                inputStream.close();
-		                outputStream.close();
-		                
-			           }catch(Exception e11) {
-			        	   System.out.println(e11);
-			           }
-			           
-		           //.select(rs.getInt("subject"));
-		           System.out.println("Done");  
-		           
-			           lblNewLabel.setIcon(ResizeImage(filePath));  //*/
-		           
-		           //answer_Field.setText((rs.getString("answer")));		           
+			       	           
 	              } catch (SQLException e3) {
 		            e3.printStackTrace();
 	              }
@@ -389,17 +234,5 @@ public void initialize(JFrame frame,int index) {
 	
 	view.setBounds(554,20, 172, 33);
 	frame.getContentPane().add(view);	
-}
-	
-/*	public ImageIcon ResizeImage(String ImagePath)
-	{
-		ImageIcon MyImage=new ImageIcon(ImagePath);
-		Image img=MyImage.getImage();
-		Image newImg=img.getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon image=new ImageIcon(newImg);
-		return image;
-	}  
-}
-*/
-
+  }
 }
