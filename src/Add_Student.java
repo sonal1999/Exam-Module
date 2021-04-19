@@ -24,8 +24,7 @@ public class Add_Student extends JFrame{
 					String roll_No_Text,email;
 				    roll_No_Text = Roll_No_Field.getText();
 				    email =Email_Field.getText();
-				   // System.out.println(roll_No_Text+"\n"+email);
-				    
+				       
 				Database_Connection connection = new Database_Connection();
 				Connection conn = connection.connect();
 				         
@@ -48,9 +47,6 @@ public class Add_Student extends JFrame{
 							 e11.printStackTrace();
 							 JOptionPane.showMessageDialog(f,"Duplicate data is not allowed...");
 						 }
-//				             
-//					System.out.println("Hello i am from actionPerformed");
-//					System.out.println("Now it's done");		
 			}
 				});
 	         
