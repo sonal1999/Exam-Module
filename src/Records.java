@@ -41,8 +41,7 @@ public class Records {
 				data[i][j]=Integer.toString(rs.getInt("marks"));
 			}
 		JTable t1= new JTable(data,column);
-		t1.setBounds(20,20,700,645);
-//		 JScrollPane sp=new JScrollPane(t1);   
+		t1.setBounds(20,20,700,645); 
 		frame.getContentPane().add(t1);	
 	}catch(Exception e11) {
 		 System.out.println(e11);
