@@ -1,5 +1,4 @@
 import java.awt.*;
-//import java.awt.event.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -26,7 +25,6 @@ public class Delete_Student extends JFrame{
 	        roll_No_Field = new TextField("",100);
 	        email_Field = new TextField("",100);
 	        contact_No_Field = new TextField("",100);
-	      //  contact_No_Field.setEchoChar("*");
 	        
 	        Button delete = new Button("Remove");
 	        delete.addActionListener(new ActionListener() {
@@ -46,7 +44,6 @@ public class Delete_Student extends JFrame{
 						conn.close();
 						 JOptionPane.showMessageDialog(f,"Student record is deleted succussfully!!!");
 					  } catch (SQLException e11) {
-						// TODO Auto-generated catch block
 						  JOptionPane.showMessageDialog(f,"Problem raised while deleting record...");
 						e11.printStackTrace();
 						 
@@ -62,7 +59,7 @@ public class Delete_Student extends JFrame{
 						  
 					 try {
 						   
-						   Statement stmt = conn.createStatement();
+			                   Statement stmt = conn.createStatement();
 				           ResultSet rs=stmt.executeQuery("select name,email,contactNo from student where rollNO="+roll_No);
 				           rs.next();
 				
