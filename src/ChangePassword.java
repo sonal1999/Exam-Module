@@ -27,11 +27,6 @@ public class ChangePassword {
 	private JPasswordField conpassword;
 
 	public ChangePassword(JFrame frame, int index) {
-
-//		Label label = new Label("Username");
-//		label.setFont(new Font("Dialog", Font.BOLD, 12));
-//		label.setBounds(104, 113, 180, 33);
-//		frame.getContentPane().add(label);
 		
 		Label label_1 = new Label("Current Password");
 		label_1.setFont(new Font("Dialog", Font.BOLD, 12));
@@ -47,10 +42,6 @@ public class ChangePassword {
 		label_3.setFont(new Font("Dialog", Font.BOLD, 12));
 		label_3.setBounds(104, 317, 180, 33);
 		frame.getContentPane().add(label_3);
-		
-//		TextField username = new TextField();
-//		username.setBounds(419, 113, 159, 33);
-//		frame.getContentPane().add(username);
 		
 		password = new JPasswordField();
 		password.setBounds(419, 180, 159, 33);
@@ -128,7 +119,6 @@ public class ChangePassword {
 				Database_Connection connection = new Database_Connection();
 		        Connection conn = connection.connect();
 		        
-//		        int index = Integer.parseInt(username.getText());
 				  try {
 					   
 					   Statement stmt = conn.createStatement();
